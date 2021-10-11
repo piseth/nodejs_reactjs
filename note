@@ -1,0 +1,19 @@
+client
+======
+npx create-react-app .
+npm start
+http://localhost:3000/
+
+npm i axios
+
+server
+======
+npm init
+npm install express body-parser mysql
+npm install nodemon
+node index.js
+
+npm run devStart
+http://localhost:3001/
+
+npm install cors
