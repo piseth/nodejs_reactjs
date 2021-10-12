@@ -31,6 +31,23 @@ app.get("/api/get",(req,res)=>{
     //res.send("Hello Express TEST");
 });
 
+app.delete("/api/delete/:movieName",(req,res)=>{
+    const movieName = req.params.movieName;
+    const sqlDelete = "Delete from movie_reviews where movieName=?";
+    db.query(sqlDelete,movieName,(err,result)=>{
+        if (err) console.log(err);
+    });
+})
+
+app.put("/api/update",(req,res)=>{
+    const movieName = req.body.movieName;
+    const movieReview = req.body.movieReview;
+    const sqlUpdate = "Update movie_reviews set movieReview=? where movieName=?";
+    db.query(sqlUpdate,[movieReview,movieName],(err,result)=>{
+        if (err) console.log(err);
+    });
+})
+
 app.listen(3001, ()=>{
     console.log("Running on port 3001");
 });
